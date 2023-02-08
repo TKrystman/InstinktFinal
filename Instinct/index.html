@@ -1,0 +1,233 @@
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+        
+        // connects to glitch server
+        let appID="INK"
+		let connection = new WebSocket('wss://instinkt.glitch.me');
+		
+        
+		function tryParseJSONObject (jsonString){
+			try {
+				var o = JSON.parse(jsonString);
+				if (o && typeof o === "object") {
+					return o;
+				}
+			}
+			catch (e) { }
+			return false;
+		};
+
+        
+		connection.onmessage = function (e) {
+			let parsed=tryParseJSONObject(e.data);
+			if(parsed.appID && parsed.appID==appID){
+				drawIncoming(parsed.data)
+			}
+		};
+
+		function sendData(data){
+			let message={
+				appID: appID,
+				data: data
+			}
+			connection.send(JSON.stringify(message));
+		}
+
+
+	</script>
+    
+    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instinkt</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background-color:#FFFFD1 ;
+    }
+  </style>
+   
+  
+     <script src="Messages.js"></script>
+ 
+    <script>
+    //this script runs to make sure the web workers API are compatible within the browser in use.
+        if(typeof(Worker)!=='undefined'){
+            console.log("Yes!");
+        }else {
+               console.log("No!");
+        }
+        
+    </script>
+    
+  <div  class="content">
+  <h2   class="text_shadows">Instinkt</h2>
+</div>
+
+
+     
+   
+  
+    
+    <p class="title"></p>
+    
+  <script src="../p5.min.js"></script>
+    
+    
+    
+    
+
+
+
+   
+ 
+
+</head>
+
+<body>
+    
+ 
+	<script>
+//all incoming data from the glitch server
+		function drawIncoming(data){
+        
+        //P5 js drawing data.
+        fill(colorPicker.color())
+        noStroke()
+        ellipse(data.x, data.y, 20)
+        
+        //Stopwatch data.
+        document.getElementById('ct').innerHTML = data.c;
+		document.getElementById('min').innerHTML = data.m;
+		document.getElementById('sec').innerHTML = data.s;
+   
+            
+    //runs the fun function so the drawing selecter is only visible when the stopwatch has been selected.           
+     CNTR();
+             
+		}
+     
+       
+	</script> 
+    
+   
+      <!-- Stopwatch with stying -->
+    <div style="top:40%;" class="timer">
+        <div id="time">
+            <span class="nums" id="min">
+              00</span>
+            <span class="txt">Min</span>
+            <span class="nums" id="sec">
+              00</span>
+            <span class="txt">Sec</span>
+            <span class="nums" id="ct">
+              00</span>
+        </div>
+        
+        <div id="buttons">
+            <button  class="select"  onclick = "CNTR()" id="start">
+              Start</button>
+            <button class="select" id="stop">
+              Stop</button>
+            <button class="select" id="reset">
+              Reset</button>
+        </div>
+    </div>
+    
+   <script src="Stopwatch.js">
+       
+    </script>
+      
+          <!-- Drawing selecter with stying -->
+       <section style="  top:55%;" class="selecta">
+    
+            <select hidden="hidden"  class="select" type="text" id="txtMessage">
+        <option value="Cat">Cat</option>
+        <option value="Boat">Boat</option>
+        <option value="Tree">Tree</option>
+        <option value="Wolf">Wolf</option>
+        <option value="Penguin">Penguin</option>
+        <option value="Book">Book</option>
+        <option value="Cannon">Cannon</option>
+        <option value="Football">Football</option>
+                
+      </select>
+           <button hidden="hidden"  class="select" id="btnSend">Draw This</button> 
+    </section>
+      <button  style="left:10%;" class="select" id="btnOpen">Add New Player</button>
+    
+    <script>
+function CNTR() {
+    //Sets the picker buttons to display when clicked 
+    let element2 = document.getElementById("btnSend");
+    let element = document.getElementById("txtMessage");
+    let hidden = element.getAttribute("hidden");
+
+   
+       element.removeAttribute("hidden");
+        element2.removeAttribute("hidden");
+   
+    
+
+  
+   }
+        start.addEventListener('click', function () {
+            //countdown function for wheb game has started. 
+            var node = document.getElementById('txt1')
+        node.style.opacity= '100';
+             setTimeout(function(){ //timeout function allows for delay 
+           var node = document.getElementById('txt1')
+     node.style.opacity= '0';
+          
+           }, 500);//Uses timeout to flash the timer
+     setTimeout(function(){
+                  var node = document.getElementById('txt2')
+     node.style.opacity= '100';
+           }, 1000);
+      setTimeout(function(){
+                  var node = document.getElementById('txt2')
+     node.style.opacity= '0';
+           }, 1500);
+        setTimeout(function(){
+                  var node = document.getElementById('txt3')
+        node.style.opacity= '100';
+           }, 2000);
+        setTimeout(function(){
+                  var node = document.getElementById('txt3')
+        node.style.opacity= '0';
+                 var node = document.getElementById('ptx')
+                node.style.opacity= '100';
+           }, 2500);
+       
+            });
+    </script>
+    
+
+      
+    
+
+     <script src="sketch.js"> 
+      
+      </script>
+  <main class="drawings">
+      
+      <Text style="opacity:0;" id="ptx" class="player">PLAYER 1 DRAW</Text>
+          <Text style="opacity:0;" id="ptx2"  class="player">PLAYER 2 DRAW</Text>
+                <Text style="opacity:0;" id="ptx3"  class="player">STOP DRAWING</Text>
+          <section class="pick" id="messages"></section>
+      
+       <section class="pick" id="messagesC"></section>
+      <Text class="pick4" id="txt1" style="opacity:0;" > 3. </Text>
+       <Text class="pick2" id="txt2" style="opacity:0;" > 2. </Text>
+       <Text class="pick3"  id="txt3"style="opacity:0;" > 1. </Text>
+      
+  </main>
+     
+</body>
+  
+</html>
+
+
