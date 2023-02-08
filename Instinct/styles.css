@@ -1,0 +1,229 @@
+/*
+  Styling references:
+
+Title: https://codepen.io/maxym11/pen/vYLKNYO
+
+Button Designs: https://getcssscan.com/css-buttons-examples
+
+  */
+
+.title {
+  color: #2596be;
+   font-size: 50px;
+ text-align: center;
+    font-weight: bold;
+     
+}
+.nums {
+    font-size: 50px;
+}
+
+.numPos {
+    top:5px;
+}
+
+.choice{
+    left:60%;
+}
+
+.drawer{
+ border: 10px;
+}
+.timer{
+   position: absolute;
+    right: 5%;
+}
+.selecta{
+     position: absolute;
+    right: 5%;
+}
+.drawings{
+     position: absolute;
+    left: 10%;
+}
+.pick{
+      position: absolute;
+    left: 140%;
+      font-size: 150px;
+    font-weight: bold;
+      color:#f28b7d;
+}
+.pick4{
+      position: absolute;
+        position: absolute;
+    left: 140%;
+      font-size: 150px;
+      color:#f28b7d;
+     text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,  
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+.pick2{
+      position: absolute;
+    left: 140%;
+      font-size: 150px;
+      color:#f28b7d;
+     text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191, 
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+    
+}
+.pick3{
+      position: absolute;
+    left: 140%;
+      font-size: 150px;
+      color:#f28b7d;
+     text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+   
+       
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+
+.player{
+          position: absolute;
+    left: 100%;
+      font-size: 40px;
+      color:#f28b7d;
+  
+}
+
+.col{
+    color:#f28b7d;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+    
+}
+
+:root {
+  --color-primary: #f6aca2;
+  --color-secondary: #f49b90;
+  --color-tertiary: #f28b7d;
+  --color-quaternary: #f07a6a;
+  --color-quinary: #ee6352;
+   
+  
+}
+
+.content {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+    margin-top: 5%;
+}
+
+.text_shadows {
+  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary),
+    9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  font-family: bungee, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: calc(2rem + 5vw);
+  text-align: center;
+  margin: 0;
+  color: var(--color-primary);
+  //color: transparent;
+  //background-color: white;
+  //background-clip: text;
+  animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+  letter-spacing: 0.4rem;
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  20% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  30% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  40% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  50% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  60% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  80% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  90% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+  }
+  50% {
+    transform: translate(-12px, -12px);
+  }
+  60% {
+    transform: translate(-12px, -12px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+
+
+
+
+.select {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #f07a6a;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+background-color:wheat;
+}
+
+.select:active {
+  box-shadow: 0px 0px 0px 0px;
+      color: #f07a6a;
+  top: 5px;
+  left: 5px;
+}
